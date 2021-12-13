@@ -1,6 +1,11 @@
 # TODO app
 
 
+
+
+# UML 
+![](https://github.com/MasteRminD6666/todo-app/blob/master/assets/UML-todoListManager.jpg)
+
 #### `.env` requirements (where applicable)
 
 - `"@testing-library/jest-dom": "^5.13.0",`
