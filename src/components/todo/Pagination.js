@@ -29,7 +29,7 @@ function PaginationTasks(props) {
                 // </div>
                 <Card style={{ width: '25rem' }}>
                 <Card.Body>
-                    <Card.Title>{item.id}</Card.Title>
+              
                 <Button onClick={() => props.toggleComplete(item.id)} variant={props.buttonColor}> {item.complete.toString()}</Button>
                   <Card.Title></Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">{item.text}</Card.Subtitle>
