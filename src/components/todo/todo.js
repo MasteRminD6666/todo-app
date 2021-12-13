@@ -2,21 +2,25 @@ import React, { useEffect, useState, useContext } from 'react';
 import useForm from '../../hooks/form.js';
 import Header from '../Header';
 import Form from '../Form';
-import List from '../List';
 import { v4 as uuid } from 'uuid';
 import { ListContext } from '../../context/list';
-
+import Pagination from './Pagination';
+const crypto = require("crypto");
 const ToDo = () => {
   const listObject = useContext(ListContext);
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem);
-
+  const [buttonColor,setButtonColor] = useState('warning');
+ 
   function addItem(item) {
     console.log(item);
-    item.id = uuid();
-    item.complete = false;
+    item.id = crypto.randomBytes(16).toString("hex");;
+    item.complete = 'Pending';
     setList([...list, item]);
+    if (item.complete =="Pending") {
+      setButtonColor("warning")
+    }
   }
 
   function deleteItem(id) {
@@ -25,14 +29,16 @@ const ToDo = () => {
   }
 
   function toggleComplete(id) {
-
+   
     const items = list.map(item => {
       if (item.id == id) {
-        item.complete = !item.complete;
-      }
+        item.complete = 'completed';
+        setButtonColor("success")
+      } 
+     
       return item;
     });
-
+    
     setList(items);
 
   }
@@ -47,7 +53,8 @@ const ToDo = () => {
     <>
       <Header incomplete={incomplete} />
       <Form handleChange={handleChange} handleSubmit={handleSubmit} />
-      <List list={list} toggleComplete={toggleComplete} />
+   
+       <Pagination buttonColor={buttonColor} toggleComplete={toggleComplete} list = {list}/>: null
     </>
   );
 };

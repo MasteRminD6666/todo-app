@@ -5,18 +5,20 @@ function todoForm(props) {
 
     return (
         <div>
-            <Card className="bp3-card .modifier" interactive={true} elevation={Elevation.TWO}>
+
+  
+            <Card className="bp3-card .modifier" interactive={true} elevation={Elevation.TWO} >
                 <h2>Add To Do Item</h2>
                 <form onSubmit={props.handleSubmit}>
 
 
                     <FormGroup
                         helperText="Add To Do Item"
-                        label="Item Details"
+                        label="Task Details"
                         labelFor="text-input"
                         labelInfo="(required)"
                     >
-                        <InputGroup name="text" onChange={props.handleChange} id="text-input" placeholder="Item Details" />
+                        <InputGroup name="text" onChange={props.handleChange} id="text-input" placeholder="Task Details" />
                     </FormGroup>
                     <FormGroup
                         helperText="Assigned To"
@@ -29,11 +31,11 @@ function todoForm(props) {
 
 
                     <label>
-                        <span style={{ marginRight: "10px" }}>Difficulty</span>
-                        <input onChange={props.handleChange} defaultValue={3} type="range" min={1} max={5} name="difficulty" />
+                        <span>Difficulty</span>
+                        <input style ={{width: "80%"}} onChange={props.handleChange} defaultValue={3} type="range" min={1} max={5} name="difficulty" />
                     </label>
 
-                    <Button style={{ marginLeft: "30px" }} type="submit" rightIcon="arrow-right" intent="success" text="Add item" />
+                    <Button style={{ marginLeft: "10px" }} type="submit" rightIcon="arrow-right" intent="success" text="Add item" />
 
 
                 </form>

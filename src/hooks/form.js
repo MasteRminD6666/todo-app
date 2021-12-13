@@ -7,6 +7,7 @@ const useForm = (callback) => {
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
     callback(values);
+    window.localStorage.setItem('tasks', JSON.stringify(values));
   };
 
   const handleChange = (event) => {
