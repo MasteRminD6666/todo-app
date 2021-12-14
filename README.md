@@ -1,11 +1,12 @@
-# TODO app
+# To Do List Manager
 
 
-# SandBox
-[Here](https://codesandbox.io/s/confident-beaver-hx0lg?file=/src/index.js)
 
-# Local ScreenShot 
-![](https://github.com/MasteRminD6666/todo-app/blob/master/assets/local.PNG)
+## SandBox
+- [Here](https://codesandbox.io/s/loving-satoshi-w7ruw?file=/src/components/todo/list/list.scss)
+
+# Local Live Test
+![](https://media.giphy.com/media/U3Z4vLgIWgXvb6Zrxb/giphy.gif)
 
 # UML 
 ![](https://github.com/MasteRminD6666/todo-app/blob/master/assets/UML-todoListManager.jpg)
@@ -30,23 +31,33 @@
 - `"superagent": "^6.1.0",`
 - `"web-vitals": "^1.1.2"`
 
+### Business Requirements
 
+The To Do Manager application has the following overall requirements:
 
+#### Designed to match the mock-up
+
+- Header, Main Section Footer
+- Use React Bootstrap for styling and visual components
+
+#### The header should present the application title and main menu
+
+- Home Link, which shows the list of To Do Items as noted below
+- A Login/Register/User section
+- When a user is not logged in:
+- Show Login and Register links
+- Login: Renders a Login Form
+- Register: Renders a new user registration form
+- Require Fields:: Username, Password, Email, Role
+- When a user is logged in:
+- Show “Welcome username” not finished yet 
+- Show a “Logout” link
+- When clicked, this should remove any cookies you have set and remove access
 
 #### How to initialize/run your application (where applicable)
 
 - `npm start`
 
-<!-- #### How to use your library (where applicable) -->
 
-### `npm run eject`
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
 
