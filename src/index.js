@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-
+import AuthContext from './context/auth';
 import App from './app.js';
-
-class Main extends React.Component {
-  render() {
-    return <App />;
-  }
+import { ThemeProvider } from './context/Theme';
+function Main() {
+  return (
+    <ThemeProvider>
+      <AuthContext>
+        <App />
+      </AuthContext>
+    </ThemeProvider>
+  );
 }
 
 const rootElement = document.getElementById('root');

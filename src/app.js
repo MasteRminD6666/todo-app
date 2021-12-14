@@ -1,13 +1,41 @@
-import React from 'react';
-import './App.scss'
-import ToDo from './components/todo/todo.js';
+import React, { useContext } from 'react';
 import ListContext from './context/list';
-export default class App extends React.Component {
-  render() {
-    return (
-      <ListContext>
-        <ToDo />
-      </ListContext>
-    );
-  }
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ToDo from './components/todo/todo';
+import Header from './components/header/Header';
+import LogIn from './components/login/Login';
+import { If, Else, Then } from 'react-if';
+import { AuthContext } from './context/auth';
+import { ThemeContext } from './context/Theme';
+import './App.scss'
+
+
+export default function App() {
+  const { loggedIn } = useContext(AuthContext);
+  const [theme, isDark, toggleTheme] = useContext(ThemeContext);
+  console.log("theme", theme);
+
+  return (
+    <>
+      <div className="app" style={{ backgroundColor: theme.backgroundColor, color: theme.color }} >
+        <ListContext>
+          <BrowserRouter>
+            <Header />
+            <If condition={!loggedIn}>
+              <Then>
+                <LogIn />
+              </Then>
+              <Else>
+                <Switch>
+                  <Route exact path="/">
+                    <ToDo />
+                  </Route>
+                </Switch>
+              </Else>
+            </If>
+          </BrowserRouter>
+        </ListContext>
+      </div>
+    </>
+  );
 }
