@@ -4,9 +4,13 @@
 
 ## SandBox
 - [Here](https://codesandbox.io/s/loving-satoshi-w7ruw?file=/src/components/todo/list/list.scss)
-
+# used Previous api for testing 
+- email: todotest@gmail.com
+- password: 1234
 # Local Live Test
 ![](https://media.giphy.com/media/U3Z4vLgIWgXvb6Zrxb/giphy.gif)
+
+
 
 # UML 
 ![](https://github.com/MasteRminD6666/todo-app/blob/master/assets/UML-todoListManager.jpg)
