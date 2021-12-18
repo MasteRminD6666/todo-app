@@ -26,9 +26,13 @@ function Header() {
           </Link>
           {loggedIn && (
             <>
+             <Link to="setting">
+                <Button className="bp3-minimal" icon="build" text="Setting" />
+              </Link>
               <Link to="/">
                 <Button className="bp3-minimal" icon="log-out" onClick={() => logout()} text="log out" />
               </Link>
+              
             </>
           )}
         </Navbar.Group>

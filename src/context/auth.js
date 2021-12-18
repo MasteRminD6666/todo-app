@@ -42,10 +42,11 @@ export default function Auth(props) {
       const response = await superagent
         .post(`${API}/sign-in`)
         .set('authorization', `Basic ${base64.encode(`${username}:${password}`)}`);
-      let arrayOfCapabilities = ['read', 'write', 'delete', 'update']
+      let arrayOfCapabilities = response.body.capabilities
+  
 
       setCapabilities(arrayOfCapabilities);
-      cookie.save('acl', arrayOfCapabilities);
+      cookie.save('Capabilities', arrayOfCapabilities);
 
       validateToken(response.body.token);
     } catch (error) {
@@ -58,8 +59,10 @@ export default function Auth(props) {
     setLoginState(false, null, {});
   };
 
-  const signUp = async (username, password, role) => {
-    const response = await axios.post(`${API}/signup`, { username: username, password: password, role: role });
+  const signUp = async (email,username, password, role) => {
+    const response = await axios.post(`${API}/signup`, { email:email,username: username, password: password, role: role });
+    let arrayOfCapabilities = response.body
+    console.log('response array',arrayOfCapabilities);
     login(username, password, role)
     validateToken(response.data.token);
   };
