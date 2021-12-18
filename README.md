@@ -1,6 +1,7 @@
 # To Do List Manager
 
-
+# Netlfiy
+- [Live](https://mystifying-nobel-b63719.netlify.app)
 
 ## SandBox
 - [Here](https://codesandbox.io/s/loving-satoshi-w7ruw?file=/src/components/todo/list/list.scss)
