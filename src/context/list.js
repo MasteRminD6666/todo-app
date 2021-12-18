@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 export const ListContext = React.createContext();
 import { v4 as uuid } from 'uuid';
+import axios from 'axios';
 
 function list(props) {
   const [list, setList] = useState([]);
@@ -12,6 +13,10 @@ function list(props) {
 
   function handleSubmit(event) {
     if (event) event.preventDefault();
+    const url = 'http://localhost:5000/api/todos'
+    axios.post(url,list).then(response =>{
+      console.log(response.data);
+    })
     values.id = uuid();
     values.complete = false;
     setList([...list, values]);
@@ -19,7 +24,7 @@ function list(props) {
     setIncomplete(incompleteCount);
     event.target.reset();
   }
-
+ 
   function handleChange(event) {
     setValues((values) => ({ ...values, [event.target.name]: event.target.value }));
   }

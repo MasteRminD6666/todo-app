@@ -13,7 +13,7 @@ function LogIn() {
     if (!values.role) {
       const res = login(values.username, values.password);
     } else {
-      const res = signUp(values.username, values.password, values.role);
+      const res = signUp(values.email,values.username, values.password, values.role);
     }
   }
 
@@ -34,6 +34,7 @@ function LogIn() {
           <div className="form">
             {switcher && (
               <form onSubmit={handleSubmit} className="login-form">
+                <input type="email" onChange={handleChange} name="email" placeholder="email" />
                 <input type="text" onChange={handleChange} name="username" placeholder="username" />
                 <input type="password" onChange={handleChange} name="password" placeholder="password" />
                 <label for="role">Choose a role:</label>
